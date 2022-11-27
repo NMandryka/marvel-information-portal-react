@@ -18,6 +18,8 @@ class CharList extends Component {
         this.marvelService.getAllCharacters()
             .then(this.onCharactersLoaded)
             .catch(this.onError)
+
+        
     }
 
     onCharactersLoaded = (characters) => {
@@ -34,9 +36,6 @@ class CharList extends Component {
         }))
     }
     
-    onLoadMore = () => {
-
-    }
 
     renderItems(arr) {
 
@@ -73,8 +72,7 @@ class CharList extends Component {
         const errorMessage = error ? <ErrorMessage/> : null;
         const spinner = loading ? <Spinner/> : null;
         const content = !(loading || error) ? items : null;
-        
-        
+                
         return (
             <div className="char__list">
                 {errorMessage}
